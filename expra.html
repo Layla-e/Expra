@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Untitled</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="CoolUtils HTML exporter" />
+<style type="text/css">
+<!--
+body { color: #000000; background-color: #FFFFFF; }
+.python1-classname { color: #000080; font-weight: bold; }
+.python1-comment { color: #808080; font-style: italic; }
+.python1-commentedcode { color: #C0C0C0; font-style: italic; }
+.python1-documentation { color: #CC00FF; }
+.python1-float { color: #008080; }
+.python1-functionname { color: #008080; font-weight: bold; }
+.python1-hexadecimal { color: #008080; }
+.python1-identifier { color: #000000; }
+.python1-matchingbrace { color: #0000FF; font-weight: bold; }
+.python1-multi-linestring { color: #808000; }
+.python1-nonreservedkeyword { color: #000080; }
+.python1-number { color: #008080; }
+.python1-octal { color: #008080; }
+.python1-reservedword { font-weight: bold; }
+.python1-space { color: #C0C0C0; }
+.python1-string { color: #808000; }
+.python1-symbol { color: #800000; }
+.python1-syntaxerror { color: #FF0000; }
+.python1-systemfunctionsandvariables { font-weight: bold; }
+.python1-unbalancedbrace { color: #FFFF00; }
+-->
+</style>
+</head>
+<body>
+<!--StartFragment--><pre><code><span class="python1-reservedword">from</span><span class="python1-space"> </span><span class="python1-identifier">psychopy</span><span class="python1-space"> </span><span class="python1-reservedword">import</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">core</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">event
+</span><span class="python1-reservedword">import</span><span class="python1-space"> </span><span class="python1-identifier">random
+
+</span><span class="python1-comment"># Basis-Fenster-DIng
+</span><span class="python1-identifier">win</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">Window</span><span class="python1-symbol">(</span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;black&quot;</span><span class="python1-symbol">)
+
+</span><span class="python1-comment"># Introduction etc
+</span><span class="python1-identifier">screen1</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;Legal things 1\nBy pressing Space you agree and wish to continue&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">)
+</span><span class="python1-identifier">screen2</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;Instructions 2\nPress Space if you fully understood the instructions and wish to start with a short practice block&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">)
+
+</span><span class="python1-identifier">screen1</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-identifier">event</span><span class="python1-symbol">.</span><span class="python1-identifier">waitKeys</span><span class="python1-symbol">(</span><span class="python1-identifier">keyList</span><span class="python1-symbol">=[</span><span class="python1-string">&quot;space&quot;</span><span class="python1-symbol">])
+
+</span><span class="python1-identifier">screen2</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-identifier">event</span><span class="python1-symbol">.</span><span class="python1-identifier">waitKeys</span><span class="python1-symbol">(</span><span class="python1-identifier">keyList</span><span class="python1-symbol">=[</span><span class="python1-string">&quot;space&quot;</span><span class="python1-symbol">])
+
+</span><span class="python1-comment"># Trials
+</span><span class="python1-identifier">trials</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-symbol">[
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;HHHHH&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;l&quot;</span><span class="python1-symbol">),
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;AAAAA&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;l&quot;</span><span class="python1-symbol">),
+
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;HHAHH&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;s&quot;</span><span class="python1-symbol">),
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;AAHAA&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;s&quot;</span><span class="python1-symbol">),
+]
+
+</span><span class="python1-comment">#trials = base_trials * 4
+</span><span class="python1-identifier">random</span><span class="python1-symbol">.</span><span class="python1-identifier">shuffle</span><span class="python1-symbol">(</span><span class="python1-identifier">trials</span><span class="python1-symbol">)
+
+
+</span><span class="python1-identifier">fixation</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;+&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">)
+</span><span class="python1-identifier">feedback</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">)
+</span><span class="python1-identifier">blank</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;&quot;</span><span class="python1-symbol">)
+
+</span><span class="python1-comment">#TRIAL LOOP
+</span><span class="python1-reservedword">for</span><span class="python1-space"> </span><span class="python1-identifier">stim_text</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">correct_key</span><span class="python1-space"> </span><span class="python1-reservedword">in</span><span class="python1-space"> </span><span class="python1-identifier">trials</span><span class="python1-symbol">:
+
+</span><span class="python1-space">    </span><span class="python1-comment">#Fixation-cross
+</span><span class="python1-space">    </span><span class="python1-identifier">fixation</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">0.5</span><span class="python1-symbol">)
+
+</span><span class="python1-space">    </span><span class="python1-comment">#Stimulus
+</span><span class="python1-space">    </span><span class="python1-identifier">stim</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-identifier">stim_text</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">)
+</span><span class="python1-space">    </span><span class="python1-identifier">stim</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+
+</span><span class="python1-space">    </span><span class="python1-identifier">response</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">event</span><span class="python1-symbol">.</span><span class="python1-identifier">waitKeys</span><span class="python1-symbol">(</span><span class="python1-identifier">keyList</span><span class="python1-symbol">=[</span><span class="python1-string">&quot;s&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;l&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;escape&quot;</span><span class="python1-symbol">])[</span><span class="python1-number">0</span><span class="python1-symbol">]
+
+</span><span class="python1-space">    </span><span class="python1-comment">#QUICK EXIT THAT FINALLY WORKS OML
+</span><span class="python1-space">    </span><span class="python1-reservedword">if</span><span class="python1-space"> </span><span class="python1-identifier">response</span><span class="python1-space"> </span><span class="python1-symbol">==</span><span class="python1-space"> </span><span class="python1-string">&quot;escape&quot;</span><span class="python1-symbol">:
+</span><span class="python1-space">        </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">close</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">quit</span><span class="python1-symbol">()
+
+</span><span class="python1-space">    </span><span class="python1-comment">#Feedback
+</span><span class="python1-space">    </span><span class="python1-reservedword">if</span><span class="python1-space"> </span><span class="python1-identifier">response</span><span class="python1-space"> </span><span class="python1-symbol">==</span><span class="python1-space"> </span><span class="python1-identifier">correct_key</span><span class="python1-symbol">:
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">text</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-string">&quot;correct&quot;
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">0.5</span><span class="python1-symbol">)
+</span><span class="python1-space">    </span><span class="python1-reservedword">else</span><span class="python1-symbol">:
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">text</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-string">&quot;false&quot;
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">1.5</span><span class="python1-symbol">)
+
+</span><span class="python1-space">    </span><span class="python1-comment">#ITI
+</span><span class="python1-space">    </span><span class="python1-identifier">blank</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">0.5</span><span class="python1-symbol">)
+
+
+</span><span class="python1-comment"># --------------------------------------------------------
+# NORMAL BLOCK
+# --------------------------------------------------------
+</span><span class="python1-identifier">block_screen</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;Finished practice Trial! The experiment will start now.\n\nbegin next trial.\n\n press Space to continue.&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">wrapWidth</span><span class="python1-symbol">=</span><span class="python1-float">1.5
+</span><span class="python1-symbol">)
+
+</span><span class="python1-identifier">block_screen</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-identifier">event</span><span class="python1-symbol">.</span><span class="python1-identifier">waitKeys</span><span class="python1-symbol">(</span><span class="python1-identifier">keyList</span><span class="python1-symbol">=[</span><span class="python1-string">&quot;space&quot;</span><span class="python1-symbol">])
+
+</span><span class="python1-comment">#80 Trials
+</span><span class="python1-identifier">base_trials</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-symbol">[
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;HHHHH&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;l&quot;</span><span class="python1-symbol">),</span><span class="python1-space">   </span><span class="python1-comment"># kongruent
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;AAAAA&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;l&quot;</span><span class="python1-symbol">),</span><span class="python1-space">   </span><span class="python1-comment"># kongruent
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;HHAHH&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;s&quot;</span><span class="python1-symbol">),</span><span class="python1-space">   </span><span class="python1-comment"># inkongruent
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;AAHAA&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;s&quot;</span><span class="python1-symbol">)</span><span class="python1-space">    </span><span class="python1-comment"># inkongruent
+</span><span class="python1-symbol">]
+
+</span><span class="python1-comment">#trials = base_trials * 20
+</span><span class="python1-identifier">random</span><span class="python1-symbol">.</span><span class="python1-identifier">shuffle</span><span class="python1-symbol">(</span><span class="python1-identifier">trials</span><span class="python1-symbol">)
+
+</span><span class="python1-comment">#Stim-
+</span><span class="python1-identifier">fixation</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;+&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">)
+</span><span class="python1-identifier">feedback</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">)
+</span><span class="python1-identifier">blank</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;&quot;</span><span class="python1-symbol">)
+
+
+</span><span class="python1-comment">#LOOP
+
+</span><span class="python1-reservedword">for</span><span class="python1-space"> </span><span class="python1-identifier">stim_text</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">correct_key</span><span class="python1-space"> </span><span class="python1-reservedword">in</span><span class="python1-space"> </span><span class="python1-identifier">trials</span><span class="python1-symbol">:
+
+</span><span class="python1-space">    </span><span class="python1-comment">#fixation-cross
+</span><span class="python1-space">    </span><span class="python1-identifier">fixation</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">0.5</span><span class="python1-symbol">)
+
+</span><span class="python1-space">    </span><span class="python1-comment">#stim
+</span><span class="python1-space">    </span><span class="python1-identifier">stim</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-identifier">stim_text</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">)
+</span><span class="python1-space">    </span><span class="python1-identifier">stim</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+
+</span><span class="python1-space">    </span><span class="python1-identifier">response</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">event</span><span class="python1-symbol">.</span><span class="python1-identifier">waitKeys</span><span class="python1-symbol">(</span><span class="python1-identifier">keyList</span><span class="python1-symbol">=[</span><span class="python1-string">&quot;s&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;l&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;escape&quot;</span><span class="python1-symbol">])[</span><span class="python1-number">0</span><span class="python1-symbol">]
+
+</span><span class="python1-space">    </span><span class="python1-comment">#Exit
+</span><span class="python1-space">    </span><span class="python1-reservedword">if</span><span class="python1-space"> </span><span class="python1-identifier">response</span><span class="python1-space"> </span><span class="python1-symbol">==</span><span class="python1-space"> </span><span class="python1-string">&quot;escape&quot;</span><span class="python1-symbol">:
+</span><span class="python1-space">        </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">close</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">quit</span><span class="python1-symbol">()
+
+</span><span class="python1-space">    </span><span class="python1-comment">#Feedback
+</span><span class="python1-space">    </span><span class="python1-reservedword">if</span><span class="python1-space"> </span><span class="python1-identifier">response</span><span class="python1-space"> </span><span class="python1-symbol">==</span><span class="python1-space"> </span><span class="python1-identifier">correct_key</span><span class="python1-symbol">:
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">text</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-string">&quot;richtig&quot;
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">0.5</span><span class="python1-symbol">)
+</span><span class="python1-space">    </span><span class="python1-reservedword">else</span><span class="python1-symbol">:
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">text</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-string">&quot;falsch&quot;
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">1.5</span><span class="python1-symbol">)
+
+</span><span class="python1-space">    </span><span class="python1-comment">#ITI
+</span><span class="python1-space">    </span><span class="python1-identifier">blank</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">0.5</span><span class="python1-symbol">)
+
+</span><span class="python1-comment"># --------------------------------------------------------
+# BLOCK INTERMISSION 1.1 NORMAL BLOCK
+# --------------------------------------------------------
+
+</span><span class="python1-identifier">rating_screen</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;On a scale from 1-10 how well did you perform?\n\npress the number on your keyboard. (1-10)&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">wrapWidth</span><span class="python1-symbol">=</span><span class="python1-float">1.5
+</span><span class="python1-symbol">)
+
+</span><span class="python1-identifier">rating_screen</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+
+</span><span class="python1-identifier">rating</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">event</span><span class="python1-symbol">.</span><span class="python1-identifier">waitKeys</span><span class="python1-symbol">(</span><span class="python1-identifier">keyList</span><span class="python1-symbol">=[
+</span><span class="python1-space">    </span><span class="python1-string">&quot;1&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;2&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;3&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;4&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;5&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;6&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;7&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;8&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;9&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;0&quot;
+</span><span class="python1-symbol">])[</span><span class="python1-number">0</span><span class="python1-symbol">]
+
+</span><span class="python1-space">    
+</span><span class="python1-comment">#BI- 1.2
+
+</span><span class="python1-identifier">rating_screen</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;On a scale from 1-10 how PLACEHOLDER (nervous??? selbstsicher????) are you feeling?\n\npress the number on your keyboard. (1-10)&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">wrapWidth</span><span class="python1-symbol">=</span><span class="python1-float">1.5
+</span><span class="python1-symbol">)
+
+</span><span class="python1-identifier">rating_screen</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+
+</span><span class="python1-identifier">rating</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">event</span><span class="python1-symbol">.</span><span class="python1-identifier">waitKeys</span><span class="python1-symbol">(</span><span class="python1-identifier">keyList</span><span class="python1-symbol">=[
+</span><span class="python1-space">    </span><span class="python1-string">&quot;1&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;2&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;3&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;4&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;5&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;6&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;7&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;8&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;9&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;0&quot;
+</span><span class="python1-symbol">])[</span><span class="python1-number">0</span><span class="python1-symbol">]
+
+
+</span><span class="python1-comment"># --------------------------------------------------------
+# MANIPULATION BLOCK
+# --------------------------------------------------------
+</span><span class="python1-identifier">block_screen</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;Continuation.\n\nDrГјcke Leertaste&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">wrapWidth</span><span class="python1-symbol">=</span><span class="python1-float">1.5
+</span><span class="python1-symbol">)
+
+</span><span class="python1-identifier">block_screen</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-identifier">event</span><span class="python1-symbol">.</span><span class="python1-identifier">waitKeys</span><span class="python1-symbol">(</span><span class="python1-identifier">keyList</span><span class="python1-symbol">=[</span><span class="python1-string">&quot;space&quot;</span><span class="python1-symbol">])
+
+</span><span class="python1-comment">#trials
+</span><span class="python1-identifier">base_trials</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-symbol">[
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;HHHHH&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;l&quot;</span><span class="python1-symbol">),
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;AAAAA&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;l&quot;</span><span class="python1-symbol">),
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;HHAHH&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;s&quot;</span><span class="python1-symbol">),
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;AAHAA&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;s&quot;</span><span class="python1-symbol">)
+]
+
+</span><span class="python1-comment">#120 Trials
+#trials = base_trials * 30
+</span><span class="python1-identifier">random</span><span class="python1-symbol">.</span><span class="python1-identifier">shuffle</span><span class="python1-symbol">(</span><span class="python1-identifier">trials</span><span class="python1-symbol">)
+
+</span><span class="python1-comment">#Stim
+</span><span class="python1-identifier">fixation</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;+&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">)
+</span><span class="python1-identifier">feedback</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">)
+</span><span class="python1-identifier">blank</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;&quot;</span><span class="python1-symbol">)
+
+</span><span class="python1-comment">#Loop
+</span><span class="python1-reservedword">for</span><span class="python1-space"> </span><span class="python1-identifier">stim_text</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">correct_key</span><span class="python1-space"> </span><span class="python1-reservedword">in</span><span class="python1-space"> </span><span class="python1-identifier">trials</span><span class="python1-symbol">:
+
+</span><span class="python1-space">    </span><span class="python1-comment">#fixation-cross
+</span><span class="python1-space">    </span><span class="python1-identifier">fixation</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">0.5</span><span class="python1-symbol">)
+
+</span><span class="python1-space">    </span><span class="python1-comment">#Stimulus
+</span><span class="python1-space">    </span><span class="python1-identifier">stim</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-identifier">stim_text</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">)
+</span><span class="python1-space">    </span><span class="python1-identifier">stim</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+
+</span><span class="python1-space">    </span><span class="python1-identifier">response</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">event</span><span class="python1-symbol">.</span><span class="python1-identifier">waitKeys</span><span class="python1-symbol">(</span><span class="python1-identifier">keyList</span><span class="python1-symbol">=[</span><span class="python1-string">&quot;s&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;l&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;escape&quot;</span><span class="python1-symbol">])[</span><span class="python1-number">0</span><span class="python1-symbol">]
+
+</span><span class="python1-space">    </span><span class="python1-reservedword">if</span><span class="python1-space"> </span><span class="python1-identifier">response</span><span class="python1-space"> </span><span class="python1-symbol">==</span><span class="python1-space"> </span><span class="python1-string">&quot;escape&quot;</span><span class="python1-symbol">:
+</span><span class="python1-space">        </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">close</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">quit</span><span class="python1-symbol">()
+
+</span><span class="python1-space">    </span><span class="python1-comment">#REAL CORRECTNESS FOR SAVED DATA= WILL NOT BE PERCEIVED BY VP
+</span><span class="python1-space">    </span><span class="python1-identifier">actually_correct</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-symbol">(</span><span class="python1-identifier">response</span><span class="python1-space"> </span><span class="python1-symbol">==</span><span class="python1-space"> </span><span class="python1-identifier">correct_key</span><span class="python1-symbol">)
+
+</span><span class="python1-space">    </span><span class="python1-comment"># --------------------------------------------------------
+</span><span class="python1-space">    </span><span class="python1-comment"># FEEDBACK MANIPULATION
+
+</span><span class="python1-space">    </span><span class="python1-identifier">flip_feedback</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-symbol">(</span><span class="python1-identifier">random</span><span class="python1-symbol">.</span><span class="python1-identifier">random</span><span class="python1-symbol">()</span><span class="python1-space"> </span><span class="python1-symbol">&lt;</span><span class="python1-space"> </span><span class="python1-float">0.25</span><span class="python1-symbol">)</span><span class="python1-space">  </span><span class="python1-comment"># 25%
+
+</span><span class="python1-space">    </span><span class="python1-comment">#actual feedback
+</span><span class="python1-space">    </span><span class="python1-reservedword">if</span><span class="python1-space"> </span><span class="python1-identifier">actually_correct</span><span class="python1-space"> </span><span class="python1-reservedword">and</span><span class="python1-space"> </span><span class="python1-identifier">flip_feedback</span><span class="python1-symbol">:
+</span><span class="python1-space">        </span><span class="python1-identifier">shown_correct</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-nonreservedkeyword">False
+</span><span class="python1-space">    </span><span class="python1-reservedword">elif</span><span class="python1-space"> </span><span class="python1-identifier">actually_correct</span><span class="python1-symbol">:
+</span><span class="python1-space">        </span><span class="python1-identifier">shown_correct</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-nonreservedkeyword">True
+</span><span class="python1-space">    </span><span class="python1-reservedword">else</span><span class="python1-symbol">:
+</span><span class="python1-space">        </span><span class="python1-identifier">shown_correct</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-nonreservedkeyword">False
+
+</span><span class="python1-space">    </span><span class="python1-comment">#manipulated feedback
+</span><span class="python1-space">    </span><span class="python1-reservedword">if</span><span class="python1-space"> </span><span class="python1-identifier">shown_correct</span><span class="python1-symbol">:
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">text</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-string">&quot;richtig&quot;
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">0.5</span><span class="python1-symbol">)
+</span><span class="python1-space">    </span><span class="python1-reservedword">else</span><span class="python1-symbol">:
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">text</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-string">&quot;falsch&quot;
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">1.5</span><span class="python1-symbol">)
+
+</span><span class="python1-space">    </span><span class="python1-comment"># ITI
+</span><span class="python1-space">    </span><span class="python1-identifier">blank</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">0.5</span><span class="python1-symbol">)
+
+</span><span class="python1-space">    </span><span class="python1-comment"># --------------------------------------------------------
+</span><span class="python1-space">    </span><span class="python1-comment">#NOTE FOR DATA REVIEW:
+</span><span class="python1-space">    </span><span class="python1-comment"># response = echte Antwort
+</span><span class="python1-space">    </span><span class="python1-comment"># actually_correct = echte Korrektheit
+</span><span class="python1-space">    </span><span class="python1-comment"># shown_correct = manipuliertes bzw gezeigtes Feedback
+
+
+# --------------------------------------------------------
+# BLOCK INTERMISSION 2.1
+# --------------------------------------------------------
+
+</span><span class="python1-identifier">rating_screen</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;On a scale from 1-10 how well did you perform?\n\npress the number on your keyboard. (1-10)&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">wrapWidth</span><span class="python1-symbol">=</span><span class="python1-float">1.5
+</span><span class="python1-symbol">)
+
+</span><span class="python1-identifier">rating_screen</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+
+</span><span class="python1-identifier">rating</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">event</span><span class="python1-symbol">.</span><span class="python1-identifier">waitKeys</span><span class="python1-symbol">(</span><span class="python1-identifier">keyList</span><span class="python1-symbol">=[
+</span><span class="python1-space">    </span><span class="python1-string">&quot;1&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;2&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;3&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;4&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;5&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;6&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;7&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;8&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;9&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;0&quot;
+</span><span class="python1-symbol">])[</span><span class="python1-number">0</span><span class="python1-symbol">]
+
+
+</span><span class="python1-comment"># --------------------------------------------------------
+# BLOCK INTERMISSION 2.2
+
+
+</span><span class="python1-identifier">rating_screen</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;On a scale from 1-10 how PLACEHOLDER (nervous??? selbstsicher????) are you feeling?\n\npress the number on your keyboard. (1-10)&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">wrapWidth</span><span class="python1-symbol">=</span><span class="python1-float">1.5
+</span><span class="python1-symbol">)
+
+</span><span class="python1-identifier">rating_screen</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+
+</span><span class="python1-identifier">rating</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">event</span><span class="python1-symbol">.</span><span class="python1-identifier">waitKeys</span><span class="python1-symbol">(</span><span class="python1-identifier">keyList</span><span class="python1-symbol">=[
+</span><span class="python1-space">    </span><span class="python1-string">&quot;1&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;2&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;3&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;4&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;5&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;6&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;7&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;8&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;9&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;0&quot;
+</span><span class="python1-symbol">])[</span><span class="python1-number">0</span><span class="python1-symbol">]
+
+
+</span><span class="python1-comment"># --------------------------------------------------------
+# NORMAL BLOCK 2
+# --------------------------------------------------------
+</span><span class="python1-identifier">block_screen</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;Last Block!.\n\n press Space to continue.&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">wrapWidth</span><span class="python1-symbol">=</span><span class="python1-float">1.5
+</span><span class="python1-symbol">)
+
+</span><span class="python1-identifier">block_screen</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-identifier">event</span><span class="python1-symbol">.</span><span class="python1-identifier">waitKeys</span><span class="python1-symbol">(</span><span class="python1-identifier">keyList</span><span class="python1-symbol">=[</span><span class="python1-string">&quot;space&quot;</span><span class="python1-symbol">])
+
+</span><span class="python1-comment">#80 TRIALS
+
+</span><span class="python1-identifier">base_trials</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-symbol">[
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;HHHHH&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;l&quot;</span><span class="python1-symbol">),</span><span class="python1-space">   </span><span class="python1-comment"># kongruent
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;AAAAA&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;l&quot;</span><span class="python1-symbol">),</span><span class="python1-space">   </span><span class="python1-comment"># kongruent
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;HHAHH&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;s&quot;</span><span class="python1-symbol">),</span><span class="python1-space">   </span><span class="python1-comment"># inkongruent
+</span><span class="python1-space">    </span><span class="python1-symbol">(</span><span class="python1-string">&quot;AAHAA&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;s&quot;</span><span class="python1-symbol">)</span><span class="python1-space">    </span><span class="python1-comment"># inkongruent
+</span><span class="python1-symbol">]
+
+</span><span class="python1-comment">#80 Trials
+
+#trials = base_trials * 20
+</span><span class="python1-identifier">random</span><span class="python1-symbol">.</span><span class="python1-identifier">shuffle</span><span class="python1-symbol">(</span><span class="python1-identifier">trials</span><span class="python1-symbol">)
+
+</span><span class="python1-comment">#stim
+</span><span class="python1-identifier">fixation</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;+&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">)
+</span><span class="python1-identifier">feedback</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">)
+</span><span class="python1-identifier">blank</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;&quot;</span><span class="python1-symbol">)
+
+
+</span><span class="python1-comment">#loop
+
+</span><span class="python1-reservedword">for</span><span class="python1-space"> </span><span class="python1-identifier">stim_text</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">correct_key</span><span class="python1-space"> </span><span class="python1-reservedword">in</span><span class="python1-space"> </span><span class="python1-identifier">trials</span><span class="python1-symbol">:
+
+</span><span class="python1-space">    </span><span class="python1-comment">#fixation-cross
+</span><span class="python1-space">    </span><span class="python1-identifier">fixation</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">0.5</span><span class="python1-symbol">)
+
+</span><span class="python1-space">    </span><span class="python1-comment">#stim
+</span><span class="python1-space">    </span><span class="python1-identifier">stim</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(</span><span class="python1-identifier">win</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-identifier">stim_text</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">)
+</span><span class="python1-space">    </span><span class="python1-identifier">stim</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+
+</span><span class="python1-space">    </span><span class="python1-identifier">response</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">event</span><span class="python1-symbol">.</span><span class="python1-identifier">waitKeys</span><span class="python1-symbol">(</span><span class="python1-identifier">keyList</span><span class="python1-symbol">=[</span><span class="python1-string">&quot;s&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;l&quot;</span><span class="python1-symbol">,</span><span class="python1-space"> </span><span class="python1-string">&quot;escape&quot;</span><span class="python1-symbol">])[</span><span class="python1-number">0</span><span class="python1-symbol">]
+
+</span><span class="python1-space">    </span><span class="python1-comment"># Exit
+</span><span class="python1-space">    </span><span class="python1-reservedword">if</span><span class="python1-space"> </span><span class="python1-identifier">response</span><span class="python1-space"> </span><span class="python1-symbol">==</span><span class="python1-space"> </span><span class="python1-string">&quot;escape&quot;</span><span class="python1-symbol">:
+</span><span class="python1-space">        </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">close</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">quit</span><span class="python1-symbol">()
+
+</span><span class="python1-space">    </span><span class="python1-comment">#Feedback
+</span><span class="python1-space">    </span><span class="python1-reservedword">if</span><span class="python1-space"> </span><span class="python1-identifier">response</span><span class="python1-space"> </span><span class="python1-symbol">==</span><span class="python1-space"> </span><span class="python1-identifier">correct_key</span><span class="python1-symbol">:
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">text</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-string">&quot;richtig&quot;
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">0.5</span><span class="python1-symbol">)
+</span><span class="python1-space">    </span><span class="python1-reservedword">else</span><span class="python1-symbol">:
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">text</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-string">&quot;falsch&quot;
+</span><span class="python1-space">        </span><span class="python1-identifier">feedback</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">        </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">1.5</span><span class="python1-symbol">)
+
+</span><span class="python1-space">    </span><span class="python1-comment">#ITI
+</span><span class="python1-space">    </span><span class="python1-identifier">blank</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+</span><span class="python1-space">    </span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">wait</span><span class="python1-symbol">(</span><span class="python1-float">0.5</span><span class="python1-symbol">)
+
+
+
+</span><span class="python1-comment"># --------------------------------------------------------
+# BLOCK INTERMISSION 3.1
+# --------------------------------------------------------
+
+</span><span class="python1-identifier">rating_screen</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;On a scale from 1-10 how well did you perform?\n\npress the number on your keyboard. (1-10)&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">wrapWidth</span><span class="python1-symbol">=</span><span class="python1-float">1.5
+</span><span class="python1-symbol">)
+
+</span><span class="python1-identifier">rating_screen</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+
+</span><span class="python1-identifier">rating</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">event</span><span class="python1-symbol">.</span><span class="python1-identifier">waitKeys</span><span class="python1-symbol">(</span><span class="python1-identifier">keyList</span><span class="python1-symbol">=[
+</span><span class="python1-space">    </span><span class="python1-string">&quot;1&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;2&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;3&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;4&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;5&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;6&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;7&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;8&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;9&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;0&quot;
+</span><span class="python1-symbol">])[</span><span class="python1-number">0</span><span class="python1-symbol">]
+
+
+</span><span class="python1-comment"># --------------------------------------------------------
+# BLOCK INTERMISSION 3.2
+
+</span><span class="python1-identifier">rating_screen</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">visual</span><span class="python1-symbol">.</span><span class="python1-identifier">TextStim</span><span class="python1-symbol">(
+</span><span class="python1-space">    </span><span class="python1-identifier">win</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">text</span><span class="python1-symbol">=</span><span class="python1-string">&quot;On a scale from 1-10 how PLACEHOLDER (nervous??? selbstsicher????) are you feeling?\n\npress the number on your keyboard. (1-10)&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">color</span><span class="python1-symbol">=</span><span class="python1-string">&quot;white&quot;</span><span class="python1-symbol">,
+</span><span class="python1-space">    </span><span class="python1-identifier">wrapWidth</span><span class="python1-symbol">=</span><span class="python1-float">1.5
+</span><span class="python1-symbol">)
+
+</span><span class="python1-identifier">rating_screen</span><span class="python1-symbol">.</span><span class="python1-identifier">draw</span><span class="python1-symbol">()
+</span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">flip</span><span class="python1-symbol">()
+
+</span><span class="python1-identifier">rating</span><span class="python1-space"> </span><span class="python1-symbol">=</span><span class="python1-space"> </span><span class="python1-identifier">event</span><span class="python1-symbol">.</span><span class="python1-identifier">waitKeys</span><span class="python1-symbol">(</span><span class="python1-identifier">keyList</span><span class="python1-symbol">=[
+</span><span class="python1-space">    </span><span class="python1-string">&quot;1&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;2&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;3&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;4&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;5&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;6&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;7&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;8&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;9&quot;</span><span class="python1-symbol">,</span><span class="python1-string">&quot;0&quot;
+</span><span class="python1-symbol">])[</span><span class="python1-number">0</span><span class="python1-symbol">]
+
+
+
+</span><span class="python1-comment"># =========================
+# CLOSE THIS HELL OF CODE-CHAOS OML
+# =========================
+</span><span class="python1-identifier">win</span><span class="python1-symbol">.</span><span class="python1-identifier">close</span><span class="python1-symbol">()
+</span><span class="python1-identifier">core</span><span class="python1-symbol">.</span><span class="python1-identifier">quit</span><span class="python1-symbol">()
+</span></code></pre><!--EndFragment--></body>
+</html>
