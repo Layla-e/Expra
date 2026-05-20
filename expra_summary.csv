@@ -1,2 +1,3 @@
 vp_id,timestamp,total_trials,accuracy_percent,mean_rt,mean_rt_correct,mean_rt_wrong,manipulated_feedback_percent,performance_rating1,nervous_rating1,performance_rating2,nervous_rating2,performance_rating3,nervous_rating3,age,education,leader,gender,mental_health,control_action1,control_consequence1,responsible_action1,responsible_consequence1,control_action2,control_consequence2,responsible_action2,responsible_consequence2,attention
 b81e3e37,2026-05-20T21:58:10.288206,12,91.67,0.5788,0.5794,0.5716,8.33,6,3,8,7,1,1,32,3,1,2,2,1,3,1,4,1,2,1,2,True
+d3daee81,2026-05-20T22:02:13.388058,12,91.67,0.5897,0.5899,0.5875,0.0,4,7,8,1,7,2,25,2,2,1,2,2,3,4,2,2,1,3,1,True
